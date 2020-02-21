@@ -1,4 +1,4 @@
-# ESP32-OV7670-Cam
+# ESP32-OV7670(noFIFO)-Cam
 Usando microcontrolador ESP32 e o módulo OV7670 (No FIFO) para Upload de imagem para um host Http
 
 
