@@ -1,0 +1,150 @@
+<html>
+
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
+    <meta charset="UTF-8">
+    <title>ESP8266</title>
+    <style>
+        img {
+            height: 100%;
+            width: auto
+        }
+
+        body {
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+
+        p {
+            color: #444;
+            font-size: 12px;
+        }
+
+        input {
+            outline: none;
+            border: 0;
+            border-radius: 6px;
+            padding: 0 5px 0 5px;
+            margin: 5px;
+            color: #1fa3ec;
+            width: 100px;
+            height: 30px;
+        }
+
+        select {
+            outline: none;
+            border: 0;
+            border-radius: 6px;
+            background-color: #FFF;
+            color: #1fa3ec;
+            width: 90px;
+            height: 30px;
+            margin: 5px;
+        }
+
+        option {
+            background-color: #1fa3ec;
+            color: white;
+        }
+
+        .button_add {
+            outline: none;
+            border: 0;
+            border-radius: 10px;
+            background-color: #FFF;
+            color: #1fa3ec;
+            margin: 5px;
+            font-size: 15px;
+            width: 50px;
+            height: 30px
+        }
+
+        .button_add:active {
+            border: 1px solid #1fa3ec;
+            background-color: #1fa3ec;
+            color: #fff;
+        }
+
+        .button_off {
+            outline: none;
+            display: block;
+            border: 2px solid #1fa3ec;
+            border-radius: 18px;
+            background-color: #FFF;
+            color: #1fa3ec;
+            width: 150px;
+            height: 30px;
+            margin: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .button_on {
+            outline: none;
+            display: block;
+            border: 2px solid #1fa3ec;
+            border-radius: 18px;
+            background-color: #1fa3ec;
+            color: #fff;
+            width: 150px;
+            height: 30px;
+            margin: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .controls_container {
+            display: inline-block;
+            background-color: #1fa3ec;
+            padding: 0 5px 0 5px;
+            border-radius: 6px;
+        }
+
+        .buttons_container {
+            padding: 5px;
+            overflow: auto;
+            width: calc(100% - 10px);
+            height: calc(100% - 55px);
+            border: 1px solid black;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--<script src="jquery.min.js"></script>-->
+</head>
+
+<body>
+    <div class="controls_container">
+        <button id="btnLive" class="button_add">Live</button>
+        <button id="btnCapturar" class="button_add">Capturar</button>
+    </div>
+    <div id="buttonsContainer" class="buttons_container">Teste5</div>
+
+    <script>
+        //Mude pelo ddns que você cadastrou
+        const URL = "http://192.168.0.78/";
+
+        $('#btnLive').on('click', function () {
+            $.ajax({
+                url: URL + 'live',
+                type: 'get',
+                success: function (msg) {
+                    $('#buttonsContainer').html(msg);
+                }
+            });
+        });
+
+        $('#btnCapturar').on('click', function () {
+            $.ajax({
+                url: URL + 'teste',
+                type: 'get',
+                success: function (msg) {
+                    alert(msg);
+                }
+            });
+            alert(msg);
+        });
+    </script>
+</body>
+
+</html>
